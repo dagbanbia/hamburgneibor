@@ -1,32 +1,84 @@
-.App {
+#map {
+  height: 100vh;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+#container {
+  display: flex;
+  background-color: rgb(247, 245, 158);
+}
+
+
+.appTitle {
+  height: 15vh;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+
+#page-top {
+  display: inline;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+#header {
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+
+#Venues {
+  text-align: left;
+  margin-top: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+#Venues-List {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 25px;
+  width: 100%;
+  text-align: left;
+}
+
+
+.listOfVenues {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+
+.listOfVenues li {
+cursor: pointer;
+}
+
+
+#Venues-List button {
+  border: none;
+  padding: 15px 50px;
+  display: inline-block;
+}
+
+
+@media screen and (max-width: 348px) {
+  #header {
+    margin-left: 10px;
+    padding-left: 10px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+
+@media (max-width: 550px) {
+  #Venues-List { width: 100%; }
+   
+  #Venues-List button { 
+    padding: 5px 0px;
+    margin-left: 0;
+    font-size: 1.05em;
+    text-align: left;
   }
 }
