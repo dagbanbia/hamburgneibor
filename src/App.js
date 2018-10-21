@@ -5,7 +5,7 @@ import escapeRegExp from 'escape-string-regexp';
 import Header from './Header';
 import SearchBar from './SearchBar';
 import MenuComponent from './MenuComponent';
-import ErrorBoundary from './ErrorBoundary';
+import ErrorHandle from './ErrorHandle';
 
 
 class App extends Component {
@@ -27,11 +27,22 @@ constructor(props) {
     
     
   }
+
+   /* 
+  * renderMap function: 
+  * - loads the script to
+  * - initializes the map
+  */
   renderMap = () => {
     loadscript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAnwItrr4BvsGLFToE_YpoCZ1lCP-yZR6o&callback=initMap")
       window.initMap = this.initMap
 
   }
+
+  /*
+  * endPoint & parameters are the two requirement of the foursquare library:
+  * https://developer.foursquare.com/docs/api/venues/explore
+  */
   getVenues = () => {
     const endPoint = 'https://api.foursquare.com/v2/venues/explore?'
     const parameters = {
@@ -40,8 +51,13 @@ constructor(props) {
       query:'University',
       near:'Hamburg',
       v : "20180923",
-      limit:10
+      limit:15
     }
+
+    /* 
+    * axios does the same thing as the FETCH API
+    * Reference: https://github.com/axios/axios 
+    */
 
      axios.get(endPoint + new URLSearchParams(parameters))
       .then(response =>{
@@ -56,6 +72,11 @@ constructor(props) {
       })
   }
 
+/* 
+    * Create the map.
+    * Center coordinates point to near central station, Hamburg - Germany.
+    * Zoom level set to 13.
+    */
   initMap = () => {
     var map = new window.google.maps.Map(document.getElementById('map'),{
       center:{lat: 53.5511877, lng: 10.0055596},
@@ -67,12 +88,15 @@ constructor(props) {
 
       var infowindow = new window.google.maps.InfoWindow()
 
-     //Display Dynamic Markers
+     //Content of Dynamic Markers
     this.state.venues.map(myVenue => {
 
       var contentString = `<b>${myVenue.venue.name}</b> <br><i>${myVenue.venue.location.address}</i>`
 
-     //Create A Marker
+     /* 
+      * Create a marker
+      * Reference: https://developers.google.com/maps/documentation/javascript/markers
+      */
 
     var marker = new window.google.maps.Marker({
       position: {lat: myVenue.venue.location.lat,lng:myVenue.venue.location.lng},
@@ -84,9 +108,14 @@ constructor(props) {
 
   this.state.markers.push(marker)
 
+  /* 
+      * Make a marker bounce. The function is called when the marker is clicked.
+      * The function is called when the marker is clicked
+      */
+
   function animationEffect() {
         marker.setAnimation(window.google.maps.Animation.BOUNCE)
-        setTimeout(function(){ marker.setAnimation(null) }, 550)
+        setTimeout(function(){ marker.setAnimation(null) }, 500)
       }
 
       function openMarker() {
@@ -94,7 +123,7 @@ constructor(props) {
         infowindow.setContent(contentString)
         animationEffect()
         
-      // Open an InfoWindow upon clicking on its marker
+      // Opens an InfoWindow when a marker is clicked
         infowindow.open(map, marker)
       }
 
@@ -110,6 +139,9 @@ constructor(props) {
 
   }
 
+  /*
+   * toggling the university list.
+  */
    
   updateQuery = query => {
     this.setState({ query })
@@ -128,7 +160,7 @@ constructor(props) {
       )
 
       /* 
-       * Hiding the markers for venues not included in the filtered venues
+       * setting markers invisible for venues not included in the filtered venues
       */
       notVisibleMarkers.forEach(marker => marker.setVisible(false))
 
@@ -138,14 +170,15 @@ constructor(props) {
       this.state.markers.forEach(marker => marker.setVisible(true))
     }
   }
-
+ /* render will display all the components
+ */
   render() {
     if (this.state.hasError) {
       return <div id="Error-message" aria-label="Error message">Sorry, something went wrong!</div>
     } else {
       return (
       <main>
-        <ErrorBoundary>
+        <ErrorHandle>
         
          
         <div id="header" aria-label="Header">
@@ -174,7 +207,7 @@ constructor(props) {
         <div id="map" aria-label="Map" role="application">
         </div>
 
-        </ErrorBoundary>
+        </ErrorHandle>
       </main>
     );
   }
