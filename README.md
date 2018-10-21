@@ -46,7 +46,7 @@ npm start
 ```
 * open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<img src="images/hamburgUni.png" alt="IMAGE OF THE APPLICATION">
+<img src="img/ham.png" alt="IMAGE OF THE APPLICATION">
  
 ```
 npm run build
@@ -71,13 +71,14 @@ Please note that the **Service Worker** providing offline capabilities works onl
 ## Credits & Helpful Links
 
 * Udacity Lectures
+<br>
 *Stack over flow.
 * The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). For more information on how to perform common tasks, visit [this page](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 * [Udacity | Neighborhood Map - Project Explained](https://www.youtube.com/playlist?list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1) by Yahya Elharony.                                    
 * For handling errors, [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) and `catch(error)`. 
 
-* [React Beginner Series](https://www.youtube.com/playlist?list=PLHrxuCR-0CcT7hgVVlh0lBWTqYkEEF55m) by simonswiss &
-<br> - [React For Everyone](https://www.youtube.com/playlist?list=PLLnpHn493BHFfs3Uj5tvx17mXk4B4ws4p) by Level Up Tutorials.
+* [React Beginner Series](https://www.youtube.com/playlist?list=PLHrxuCR-0CcT7hgVVlh0lBWTqYkEEF55m) by simonswiss 
+<br> * [React For Everyone](https://www.youtube.com/playlist?list=PLLnpHn493BHFfs3Uj5tvx17mXk4B4ws4p) by Level Up Tutorials.
 
 
 
