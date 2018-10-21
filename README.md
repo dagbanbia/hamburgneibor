@@ -46,7 +46,7 @@ npm start
 ```
 * open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<img src="images/hamburgUni.png" alt="">
+<img src="images/hamburgUni.png" alt="IMAGE OF THE APPLICATION">
  
 ```
 npm run build
