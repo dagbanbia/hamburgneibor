@@ -70,7 +70,7 @@ Please note that the **Service Worker** providing offline capabilities works onl
 
 ## Credits & Helpful Links
 
-* Udacity Lectures
+* Udacity Lectures  & Stack overflow
 * The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). For more information on how to perform common tasks, visit [this page](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 * [Udacity | Neighborhood Map - Project Explained](https://www.youtube.com/playlist?list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1) by Yahya Elharony.                                    
 * For handling errors, [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) and `catch(error)`. 
